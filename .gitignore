@@ -1,0 +1,83 @@
+# =======================================================
+# GLOBAL & OS FILES
+# =======================================================
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# =======================================================
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# =======================================================
+# BACKEND (Python / Django)
+# =======================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+# (Catches common names for virtual envs)
+venv/
+env/
+.venv/
+.env/
+
+# Django specific
+*.sqlite3
+db.sqlite3
+local_settings.py
+
+# Static files collected by Django
+# (We want Render/Heroku to generate these, not commit them)
+backend/staticfiles/
+backend/media/
+
+# Testing and Coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+
+# =======================================================
+# FRONTEND (Node / React / Vite)
+# =======================================================
+# Dependencies (Heavy folders)
+node_modules/
+frontend/node_modules/
+
+# Production Build Output
+# (Vercel/Netlify generates these on deploy)
+dist/
+frontend/dist/
+build/
+frontend/build/
+
+# Local Hosting Folders
+.vercel
+.netlify
+
+# Debug Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+cypress/videos
+cypress/screenshots
+
+# Vite specific
+*.local
