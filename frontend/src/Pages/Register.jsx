@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
-import { registerUser } from "../features/UserSlice";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../features/authSlice";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
-    const {user} = useSelector(state => state.users)
+  const navigate = useNavigate()
     const dp = useDispatch()
   const [formdata, setFormdata] = useState({ username: "", email: "", password: "" });
   const handleInput = (e) =>{
@@ -17,6 +18,7 @@ const Register = () => {
         return alert("No details provided")
     }
     dp(registerUser(formdata))
+    alert ("user registered")
     
   }
   return (
@@ -25,7 +27,7 @@ const Register = () => {
 <input type="text" placeholder="enter your name"  value={formdata.username} name="username" onChange={handleInput} />
 <input type="email"placeholder="enter your email address" value={formdata.email} name="email" onChange={handleInput} />
 <input type="password"placeholder="enter your password" value={formdata.password} name="password" onChange={handleInput}   />
-<button>Register</button>
+<button onClick={()=>navigate('/login')}>Register</button>
 
       </form>
     </div>

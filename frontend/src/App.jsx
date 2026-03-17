@@ -5,6 +5,8 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
+import ProtectedRoute from './Components/ProtectedRoute'
+import AddBook from './Pages/AddBook'
 
 
 const App = () => {
@@ -12,8 +14,9 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/'element={<Home />} />
-        <Route path='/bookdetail'element={<Bookdetail />}/>
+        <Route path='/'element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path='/bookdetail/:id'element={<ProtectedRoute><Bookdetail /></ProtectedRoute>}/>
+        <Route path='/addbook' element={<ProtectedRoute><AddBook /></ProtectedRoute>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/register'element={<Register />}/>
       </Routes>
