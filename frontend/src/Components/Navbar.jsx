@@ -8,32 +8,32 @@ const Navbar = () => {
     
   
   return (
-  <nav className='p-5 flex justify-between  bg-purple-300'>
-    <h1>BOOK STORE</h1>
+  <nav className='p-5 flex justify-between  bg-pink-200'>
+    <h1 className='text-3xl font-bold text-pink-900'>BOOK STORE</h1>
     <div className='flex gap-2.5 '>
          {user ? (
           <>
-           <Link to="/">Home</Link>
-           <Link to="/addbook">Add Book</Link>
+           <Link className='bg-pink-600 p-2 rounded-xl text-white' to="/">Home</Link>
+           <Link className='bg-pink-600 p-2 rounded-xl text-white' to="/addbook">Add Book</Link>
            <button
               onClick={() => dp(logout())}
-              className="text-red-600 font-semibold"
+              className="font-semibold bg-pink-800 p-2 rounded-xl text-white"
             >
               Logout
            </button>
           </>
         ) : (
           <>
-            <Link
+            <Link 
               to="/login"
-              className="text-green-600 font-semibold"
+              className="bg-pink-600 p-2 rounded-xl text-white"
             >
               Login
             </Link>
 
             <Link
               to="/register"
-              className="text-blue-600 font-semibold"
+              className="bg-pink-800 p-2 rounded-xl text-white"
             >
               Register
             </Link>

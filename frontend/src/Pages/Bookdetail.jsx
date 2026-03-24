@@ -25,7 +25,7 @@ const Bookdetail = () => {
         Author : {currentBook?.author}
       </p>
 
-      <p className="text-green-600 font-bold">
+      <p className="text-pink-600 font-bold">
         ₹ {currentBook?.price}
       </p>
 

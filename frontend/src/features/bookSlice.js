@@ -67,6 +67,45 @@ return res.data;
 }
 );
 
+export const updateBook = createAsyncThunk(
+  "books/updateBook",
+  async (data) => {
+    const {id,formData} = data
+    const token = JSON.parse(localStorage.getItem("token"))
+
+    const res = await axios.patch(
+      `${import.meta.env.VITE_API_URL}/books/${id}/`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+
+    return res.data
+  }
+);
+
+export const deleteBook = createAsyncThunk(
+  "books/deleteBook",
+  async (id) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    await axios.delete(
+      `${import.meta.env.VITE_API_URL}/books/${id}/`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return id; // return deleted id
+  }
+);
+
+
 // Book slice
 const bookSlice = createSlice({
   name: "books",
@@ -110,8 +149,33 @@ const bookSlice = createSlice({
     .addCase(getSingleBook.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
-    });
+    })
+    // .addCase(updateBook.fulfilled,(state,action) =>{
+    //   alert("book updated")
+    // })
+
+    .addCase(updateBook.fulfilled, (state, action) => {
+  const updatedBook = action.payload;
+
+  state.books = state.books.map((book) =>
+    book.id === updatedBook.id ? updatedBook : book
+  );
+
+  alert("book updated");
+})
+
+.addCase(deleteBook.fulfilled, (state, action) => {
+  const id = action.payload;
+
+  state.books = state.books.filter((book) => book.id !== id);
+
+  alert("Book deleted");
+})
+
+   
   },
+
+
 });
 
 export const { clearError, resetBooks } = bookSlice.actions;

@@ -9,8 +9,8 @@ const Home = () => {
     dp(getBooks())
   },[dp])
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-3xl font-bold mb-8 text-center">BookStore</h1>
+    <div className="min-h-screen  p-10">
+      <h1 className="text-3xl text-pink-800 font-bold mb-8 text-center">Booklist</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 

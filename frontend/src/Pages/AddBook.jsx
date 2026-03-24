@@ -29,9 +29,9 @@ const AddBook = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow-md w-96 space-y-4"
+        className="bg-white p-6 rounded-2xl shadow-md w-96 space-y-4"
       >
-        <h2 className="text-xl font-bold text-center">Add Book</h2>
+        <h2 className="text-xl text-pink-600 font-bold text-center">Add Book</h2>
 
         <input
           type="text"
@@ -62,7 +62,7 @@ const AddBook = () => {
 
         <button
           type="submit"
-          className="w-full bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
+          className="w-full bg-pink-600 text-white p-2 rounded hover:bg-purple-700"
         >
           Add Book
         </button>
