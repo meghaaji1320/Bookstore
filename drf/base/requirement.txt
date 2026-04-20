@@ -1,9 +1,9 @@
 Django
-djangorestframework
+Djangorestframework
 psycopg2-binary
-dj-database-url
-django-cors-headers
-djangorestframework-simplejwt
+Dj-database-url
+Django-cors-headers
+Djangorestframework-simplejwt
 Pillow
 python-dotenv
 gunicorn
