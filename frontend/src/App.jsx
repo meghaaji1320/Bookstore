@@ -7,11 +7,12 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import ProtectedRoute from './Components/ProtectedRoute'
 import AddBook from './Pages/AddBook'
-
+import {Toaster} from "react-hot-toast"
 
 const App = () => {
   return (
     <div>
+      <Toaster/>
       <Navbar />
       <Routes>
         <Route path='/'element={<ProtectedRoute><Home /></ProtectedRoute>} />

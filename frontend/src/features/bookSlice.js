@@ -2,6 +2,7 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 // Initial state
 const initialState = {
@@ -161,15 +162,16 @@ const bookSlice = createSlice({
     book.id === updatedBook.id ? updatedBook : book
   );
 
-  alert("book updated");
+  toast.success("Updated Successfully!")
 })
 
 .addCase(deleteBook.fulfilled, (state, action) => {
   const id = action.payload;
 
   state.books = state.books.filter((book) => book.id !== id);
+  toast.success("Book Deleted")
 
-  alert("Book deleted");
+  
 })
 
    
